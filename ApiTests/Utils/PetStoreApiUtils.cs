@@ -8,6 +8,7 @@ namespace TestProject.Utils
     {
         private static readonly string GetEndpoint = "pet/";
         private static readonly string PostEndpoint = "pet/";
+        private static readonly string PutEndpoint = "pet/";
 
         public static Pet GetPetById(long id)
         {
@@ -19,7 +20,12 @@ namespace TestProject.Utils
         {
             return ApiUtils.SendPostRequest(PostEndpoint, pet);
         }
-        
+
+        public static RestResponse PutPet(Pet pet)
+        {
+            return ApiUtils.SendPutRequest(PutEndpoint, pet);
+        }
+
         public static bool PostPetIsSuccessful(Pet pet)
         {
             //implement a logic of sending a post request with a verification of success
