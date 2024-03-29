@@ -6,34 +6,32 @@ namespace TestProject.Utils
 {
     internal class PetStoreApiUtils
     {
-        private static readonly string GetEndpoint = "pet/";
-        private static readonly string PostEndpoint = "pet/";
-        private static readonly string PutEndpoint = "pet/";
+        private static readonly string PetEndpoint = "pet/";
 
         public static Pet GetPetById(long id)
         {
             return DeserializePetResponse(
-                ApiUtils.SendGetRequest(GetEndpoint + id));
+                ApiUtils.SendGetRequest(PetEndpoint + id));
         }
 
         public static RestResponse PostPet(Pet pet)
         {
-            return ApiUtils.SendPostRequest(PostEndpoint, pet);
+            return ApiUtils.SendPostRequest(PetEndpoint, pet);
         }
 
         public static RestResponse PutPet(Pet pet)
         {
-            return ApiUtils.SendPutRequest(PutEndpoint, pet);
+            return ApiUtils.SendPutRequest(PetEndpoint, pet);
         }
 
         public static bool PostPetIsSuccessful(Pet pet)
         {
-            //implement a logic of sending a post request with a verification of success
-            return false;
+            return PostPet(pet).IsSuccessful;
         }
 
-        public static void DeletePetById(string id)
+        public static RestResponse DeletePetById(string id)
         {
+            return ApiUtils.SendDeleteRequest(PetEndpoint + id);
             //add delete request for PetStore
         }
 

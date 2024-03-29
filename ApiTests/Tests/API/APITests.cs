@@ -9,12 +9,12 @@ namespace TestProject.Tests.API
         public void Setup()
         {
             //create a pet using post request
+            //move test data creation here
             PetStoreApiUtils.PostPet(
                 new Pet(
                     ConfigReader.GetNumericalTestDataValue("petId"),
                     ConfigReader.GetTestDataValue("petName"),
                     ConfigReader.GetTestDataValue("petStatus")));
-            //move test data creation here
         }
 
         [Test]
@@ -37,6 +37,8 @@ namespace TestProject.Tests.API
                 ConfigReader.GetNumericalTestDataValue("petId")).Name,
                 Is.EqualTo(ConfigReader.GetTestDataValue("newPetName")),
                 "Pet name is not as expected");
+
+            //Assert.True(PetStoreApiUtils.PostPetIsSuccessful(pet));
         }
 
         [TearDown]
