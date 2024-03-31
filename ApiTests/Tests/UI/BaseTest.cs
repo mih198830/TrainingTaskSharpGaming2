@@ -10,7 +10,6 @@ namespace ApiTests.Tests.UI
         public void Setup()
         {
             Browser.GetDriver().Navigate().GoToUrl(ConfigReader.GetConfigValue("webUIUrl"));
-            Browser.GetDriver().Manage().Window.Maximize();
         }
 
         [TearDown]

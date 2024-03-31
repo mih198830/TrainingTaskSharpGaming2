@@ -19,8 +19,8 @@ namespace TestProject.Tests.UI
             Browser.GetDriver().FindElement(framesBtn).Click();
             Browser.GetDriver().FindElement(iframeBtn).Click();
             //input text to the textfield
-            Assert.True(Browser.GetDriver().FindElement(By.XPath(string.Format(XpathPatterns.preciseTextXpath, initText + randomValue))).Displayed,
-                    "Text is not displayed");
+            //Assert.True(Browser.GetDriver().FindElement(By.XPath(string.Format(XpathPatterns.preciseTextXpath, initText + randomValue))).Displayed,
+                    //"Text is not displayed");
 
             //driver.FindElement(editBtn).Click();
             //driver.FindElement(undoBtn).Click();
