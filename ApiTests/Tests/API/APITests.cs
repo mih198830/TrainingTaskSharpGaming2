@@ -1,3 +1,4 @@
+using System.Net;
 using TestProject.Models;
 using TestProject.Utils;
 
@@ -21,6 +22,7 @@ namespace TestProject.Tests.API
         public void PetTest()
         {
             //validate that the name of the pet is as you passed in a previous step
+
             Assert.That(PetStoreApiUtils.GetPetById(
                 ConfigReader.GetNumericalTestDataValue("petId")).Name,
                 Is.EqualTo(ConfigReader.GetTestDataValue("petName")), "Pet name is not as expected");
@@ -31,14 +33,13 @@ namespace TestProject.Tests.API
                     ConfigReader.GetNumericalTestDataValue("petId"),
                     ConfigReader.GetTestDataValue("newPetName"),
                     ConfigReader.GetTestDataValue("petStatus")));
+            //Assert.True(PetStoreApiUtils.PostPetIsSuccessful());
 
             //validate that the name of the pet is updated to a new one
             Assert.That(PetStoreApiUtils.GetPetById(
                 ConfigReader.GetNumericalTestDataValue("petId")).Name,
                 Is.EqualTo(ConfigReader.GetTestDataValue("newPetName")),
-                "Pet name is not as expected");
-
-            //Assert.True(PetStoreApiUtils.PostPetIsSuccessful(pet));
+                "Updated pet name is not as expected");
         }
 
         [TearDown]

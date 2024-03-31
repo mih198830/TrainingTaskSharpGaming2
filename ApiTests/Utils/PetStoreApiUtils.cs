@@ -32,7 +32,7 @@ namespace TestProject.Utils
         public static RestResponse DeletePetById(string id)
         {
             return ApiUtils.SendDeleteRequest(PetEndpoint + id);
-            //add delete request for PetStore
+            //added delete request for PetStore
         }
 
         private static Pet DeserializePetResponse(RestResponse petResponse)
