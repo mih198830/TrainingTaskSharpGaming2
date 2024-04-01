@@ -8,6 +8,7 @@ namespace TestProject.Tests.UI
     {
         private static readonly By framesBtn = By.XPath(string.Format(XpathPatterns.preciseTextXpath, "Frames"));
         private static readonly By iframeBtn = By.XPath(string.Format(XpathPatterns.preciseTextXpath, "iFrame"));
+        private static readonly By textField = By.XPath("//*[@data-id='mce_0']");
         //private static readonly By editBtn = By.XPath(insert locator here);
         //private static readonly By undoBtn = By.XPath(insert locator here);
         private static readonly string randomValue = Guid.NewGuid().ToString();
@@ -19,10 +20,13 @@ namespace TestProject.Tests.UI
             Browser.GetDriver().FindElement(framesBtn).Click();
             Browser.GetDriver().FindElement(iframeBtn).Click();
             //input text to the textfield
+            Browser.GetDriver().SwitchTo().Frame("mce_0_ifr");
+            Browser.GetDriver().FindElement(textField).Click();
             //Assert.True(Browser.GetDriver().FindElement(By.XPath(string.Format(XpathPatterns.preciseTextXpath, initText + randomValue))).Displayed,
-                    //"Text is not displayed");
+            //"Text is not displayed");
 
             //driver.FindElement(editBtn).Click();
+
             //driver.FindElement(undoBtn).Click();
 
             //assert text is not displayed
