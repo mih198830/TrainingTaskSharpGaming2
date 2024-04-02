@@ -30,7 +30,7 @@ namespace TestProject.Tests.UI
             Browser.GetDriver().FindElement(inputField).SendKeys(randomValue);
             string printedText = driver.FindElement(inputField).GetAttribute("value");
             //assert input text
-            Assert.That(randomValue, Is.EqualTo(printedText));
+            Assert.That(randomValue, Is.EqualTo(printedText), "Printed text is not what was inputted");
         }
     }
 }

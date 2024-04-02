@@ -1,6 +1,9 @@
 ﻿using ApiTests.Tests.UI;
 using OpenQA.Selenium;
+using System.Net.NetworkInformation;
 using TestProject.Utils;
+using NUnit.Framework;
+
 
 namespace TestProject.Tests.UI
 {
@@ -9,8 +12,8 @@ namespace TestProject.Tests.UI
         private static readonly By framesBtn = By.XPath(string.Format(XpathPatterns.preciseTextXpath, "Frames"));
         private static readonly By iframeBtn = By.XPath(string.Format(XpathPatterns.preciseTextXpath, "iFrame"));
         private static readonly By textField = By.XPath("//*[@data-id='mce_0']");
-        //private static readonly By editBtn = By.XPath(insert locator here);
-        //private static readonly By undoBtn = By.XPath(insert locator here);
+        private static readonly By editBtn = By.XPath(string.Format(XpathPatterns.preciseTextXpath, "Edit"));
+        private static readonly By undoBtn = By.XPath(string.Format(XpathPatterns.preciseTextXpath, "Undo"));
         private static readonly string randomValue = Guid.NewGuid().ToString();
         private static readonly string initText = "Your content goes here.";
 
@@ -22,14 +25,17 @@ namespace TestProject.Tests.UI
             //input text to the textfield
             Browser.GetDriver().SwitchTo().Frame("mce_0_ifr");
             Browser.GetDriver().FindElement(textField).Click();
-            //Assert.True(Browser.GetDriver().FindElement(By.XPath(string.Format(XpathPatterns.preciseTextXpath, initText + randomValue))).Displayed,
-            //"Text is not displayed");
+            Browser.GetDriver().FindElement(textField).SendKeys(randomValue);
+            Assert.That(Browser.GetDriver().FindElement(By.XPath(string.Format(XpathPatterns.preciseTextXpath, initText + randomValue))).Displayed,
+                    "Text is not displayed");
 
-            //driver.FindElement(editBtn).Click();
-
-            //driver.FindElement(undoBtn).Click();
-
-            //assert text is not displayed
+            Browser.GetDriver().SwitchTo().DefaultContent();
+            Browser.GetDriver().FindElement(editBtn).Click();
+            Browser.GetDriver().FindElement(undoBtn).Click();
+            Browser.GetDriver().SwitchTo().Frame("mce_0_ifr");
+            string clearedPrintedText = Browser.GetDriver().FindElement(textField).Text;
+            //assert input text
+            Assert.That(clearedPrintedText, Is.EqualTo(initText), "Printed text is not initial value");
         }
     }
 }
