@@ -1,8 +1,6 @@
 ﻿using ApiTests.Tests.UI;
 using OpenQA.Selenium;
-using System.Net.NetworkInformation;
 using TestProject.Utils;
-using NUnit.Framework;
 
 
 namespace TestProject.Tests.UI
@@ -26,16 +24,15 @@ namespace TestProject.Tests.UI
             Browser.GetDriver().SwitchTo().Frame("mce_0_ifr");
             Browser.GetDriver().FindElement(textField).Click();
             Browser.GetDriver().FindElement(textField).SendKeys(randomValue);
-            Assert.That(Browser.GetDriver().FindElement(By.XPath(string.Format(XpathPatterns.preciseTextXpath, initText + randomValue))).Displayed,
-                    "Text is not displayed");
-
+            Assert.That(Browser.GetDriver().FindElement(By.XPath(string.Format(XpathPatterns.preciseTextXpath, 
+                initText + randomValue))).Displayed, $"Text '{initText}{randomValue}' is not displayed");
             Browser.GetDriver().SwitchTo().DefaultContent();
             Browser.GetDriver().FindElement(editBtn).Click();
             Browser.GetDriver().FindElement(undoBtn).Click();
             Browser.GetDriver().SwitchTo().Frame("mce_0_ifr");
-            string clearedPrintedText = Browser.GetDriver().FindElement(textField).Text;
+            string printedTextAfterClear = Browser.GetDriver().FindElement(textField).Text;
             //assert input text
-            Assert.That(clearedPrintedText, Is.EqualTo(initText), "Printed text is not initial value");
+            Assert.That(printedTextAfterClear, Is.EqualTo(initText), $"Printed text is not initial value'{initText}'");
         }
     }
 }
