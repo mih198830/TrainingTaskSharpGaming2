@@ -21,12 +21,7 @@ namespace TestProject.Utils
 
         public static RestResponse PutPet(Pet pet)
         {
-            return ApiUtils.SendPutRequest(PetEndpoint, pet);
-        }
-
-        public static bool PostPetIsSuccessful(Pet pet)
-        {
-            return PostPet(pet).IsSuccessful;
+            return ApiUtils.SendPostRequest(PetEndpoint, pet);
         }
 
         public static RestResponse DeletePetById(string id)
