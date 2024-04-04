@@ -9,7 +9,6 @@ namespace TestProject.Tests.UI
 {
     internal class DynamicControlsTests : BaseTest
     {
-        readonly IWebDriver driver = Browser.GetDriver();
         readonly MainPage mainPage = new MainPage();
         private static readonly By enableBtn = By.XPath(string.Format(XpathPatterns.preciseTextXpath, "Enable"));
         private static readonly By disableBtn = By.XPath(string.Format(XpathPatterns.preciseTextXpath, "Disable"));
@@ -20,17 +19,18 @@ namespace TestProject.Tests.UI
         public void DynamicControlsTest()
         {
             mainPage.ClickOnDynamicControl();
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
+            WebDriverWait wait = new WebDriverWait(Browser.GetDriver(), TimeSpan.FromSeconds(100));
             wait.Until(ExpectedConditions.ElementToBeClickable(enableBtn));
             Browser.GetDriver().FindElement(enableBtn).Click();
             wait.Until(ExpectedConditions.ElementIsVisible(disableBtn));
             //assert input is enabled
-            Assert.That(driver.FindElement(disableBtn).Enabled, Is.True);
+            Assert.That(Browser.GetDriver().FindElement(disableBtn).Enabled, Is.True);
             //input randomly generated text
             Browser.GetDriver().FindElement(inputField).SendKeys(randomValue);
-            string printedText = driver.FindElement(inputField).GetAttribute("value");
+            string printedText = Browser.GetDriver().FindElement(inputField).GetAttribute("value");
             //assert input text
-            Assert.That(randomValue, Is.EqualTo(printedText), "Printed text is not what was inputted");
+            Assert.That(randomValue, Is.EqualTo(printedText), $"Printed text '{printedText}' is not" +
+                $" what was inputted '{randomValue}'");
         }
     }
 }
