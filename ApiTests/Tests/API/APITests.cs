@@ -2,7 +2,7 @@ using RestSharp;
 using System.Net;
 using TestProject.Models;
 using TestProject.Utils;
-using NUnit.Framework;
+
 
 namespace TestProject.Tests.API
 {
@@ -49,7 +49,10 @@ namespace TestProject.Tests.API
             //delete a pet from the petstore
             PetStoreApiUtils.DeletePetById(ConfigReader.GetTestDataValue("petId"));
             //Created pet should be deleted after the test
-
+            
+            //RestResponse getResponse = PetStoreApiUtils.GetPetById(
+            //    ConfigReader.GetNumericalTestDataValue("petId"));
+            //Assert.That(getResponse.StatusCode, Is.EqualTo(HttpStatusCode.NotFound), "Pet was not deleted");
         }
     }
 }
