@@ -4,7 +4,7 @@ using System.Text.Json;
 
 namespace TestProject.Utils
 {
-    internal class PetStoreApiUtils
+    static class PetStoreApiUtils
     {
         private static readonly string PetEndpoint = "pet/";
 
@@ -24,11 +24,12 @@ namespace TestProject.Utils
             return ApiUtils.SendPostRequest(PetEndpoint, pet);
         }
 
-        public static RestResponse DeletePetById(string id)
+        public static bool DeletePetById(string id)
         {
-            return ApiUtils.SendDeleteRequest(PetEndpoint + id);
-            //added delete request for PetStore
+            RestResponse response = ApiUtils.SendDeleteRequest(PetEndpoint + id);
+            return response.StatusCode == System.Net.HttpStatusCode.OK;
         }
+
 
         private static Pet DeserializePetResponse(RestResponse petResponse)
         {

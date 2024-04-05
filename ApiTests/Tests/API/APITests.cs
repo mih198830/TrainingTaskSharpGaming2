@@ -34,25 +34,25 @@ namespace TestProject.Tests.API
                     ConfigReader.GetNumericalTestDataValue("petId"),
                     ConfigReader.GetTestDataValue("newPetName"),
                     ConfigReader.GetTestDataValue("petStatus")));
-            Assert.That(updateResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK), "Pet update request was not successful");
 
-            //validate that the name of the pet is updated to a new one
-            Assert.That(PetStoreApiUtils.GetPetById(
-                ConfigReader.GetNumericalTestDataValue("petId")).Name,
-                Is.EqualTo(ConfigReader.GetTestDataValue("newPetName")),
-                "Updated pet name is not as expected");
+            Assert.Multiple(() =>
+            {
+                Assert.That(updateResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK), "Pet update request was not successful");
+                //validate that the name of the pet is updated to a new one
+                Assert.That(PetStoreApiUtils.GetPetById(
+                    ConfigReader.GetNumericalTestDataValue("petId")).Name,
+                    Is.EqualTo(ConfigReader.GetTestDataValue("newPetName")),
+                    "Updated pet name is not as expected");
+            }
+           );
         }
 
         [TearDown]
         public void TearDown()
         {
             //delete a pet from the petstore
-            PetStoreApiUtils.DeletePetById(ConfigReader.GetTestDataValue("petId"));
             //Created pet should be deleted after the test
-            
-            //RestResponse getResponse = PetStoreApiUtils.GetPetById(
-            //    ConfigReader.GetNumericalTestDataValue("petId"));
-            //Assert.That(getResponse.StatusCode, Is.EqualTo(HttpStatusCode.NotFound), "Pet was not deleted");
+            PetStoreApiUtils.DeletePetById(ConfigReader.GetTestDataValue("petId"));
         }
     }
 }
