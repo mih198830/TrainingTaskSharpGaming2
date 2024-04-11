@@ -11,7 +11,5 @@ namespace TestProject.Tests.Pages
         {
             Browser.GetDriver().FindElement(iframeBtn).Click();
         }
-
-
     }
 }

@@ -1,5 +1,7 @@
 ﻿using ApiTests.Tests.UI;
+using System.Reflection;
 using TestProject.Tests.Pages;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace TestProject.Tests.UI
@@ -17,8 +19,7 @@ namespace TestProject.Tests.UI
             framesPage.ClickOnIframeButton();
             iframePage.SwitchToIframe();
             iframePage.SendRandomTextToTextField();
-            Assert.That(iframePage.GetAttributeOfInputField, Is.EqualTo(iframePage.GetInitText() + GetRandomValue()),
-                $"Printed text is not initial value '{iframePage.GetInitText()}'");
+            Assert.That(iframePage.GetPrintedTextBeforeClear(), Is.True, "Printed text is not expected");
             iframePage.SwitchFromIframe();
             iframePage.ClickOnEditButtonInIframe();
             iframePage.ClickOnUndoButton();
