@@ -17,6 +17,7 @@ namespace TestProject.Tests.Pages
             "Dynamic Controls"));
         private static readonly By enableBtn = By.XPath(string.Format(XpathPatterns.preciseTextXpath, "Enable"));
         private static readonly By disableBtn = By.XPath(string.Format(XpathPatterns.preciseTextXpath, "Disable"));
+        private static readonly By framesBtn = By.XPath(string.Format(XpathPatterns.preciseTextXpath, "Frames"));
         WebDriverWait wait = new WebDriverWait(Browser.GetDriver(), TimeSpan.FromSeconds(100));
         
 
@@ -48,6 +49,11 @@ namespace TestProject.Tests.Pages
         public string GetAttributeOfInputField()
         {
             return Browser.GetDriver().FindElement(inputField).GetAttribute("value");
+        }
+
+        public void ClickOnFramesButton()
+        {
+            Browser.GetDriver().FindElement(framesBtn).Click();
         }
 
         public bool CheckIfButtonIsEnabled()
