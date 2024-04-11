@@ -1,7 +1,5 @@
 ﻿using ApiTests.Tests.UI;
-using OpenQA.Selenium;
 using TestProject.Tests.Pages;
-using TestProject.Utils;
 
 
 namespace TestProject.Tests.UI
@@ -17,17 +15,16 @@ namespace TestProject.Tests.UI
         {
             mainPage.ClickOnFramesButton();
             framesPage.ClickOnIframeButton();
-            //input text to the textfield
             iframePage.SwitchToIframe();
-            iframePage.ClickOnEditButtonInIframe();
             iframePage.SendRandomTextToTextField();
-            Assert.That(iframePage.GetPrintedTextBeforeClear, $"Printed Text '{iframePage.GetInitText()}{iframePage.GetRandomValue()}' is not displayed");
+            Assert.That(iframePage.GetAttributeOfInputField, Is.EqualTo(iframePage.GetInitText() + GetRandomValue()),
+                $"Printed text is not initial value '{iframePage.GetInitText()}'");
             iframePage.SwitchFromIframe();
             iframePage.ClickOnEditButtonInIframe();
             iframePage.ClickOnUndoButton();
             iframePage.SwitchToIframe();
-            //assert input text
-            Assert.That(iframePage.GetPrintedTextAfterClearTextField(), Is.EqualTo(iframePage.GetInitText()), $"Printed text is not initial value'{iframePage.GetInitText()}'");
+            Assert.That(iframePage.GetPrintedTextAfterClearTextField(), Is.EqualTo(iframePage.GetInitText()), 
+                $"Printed text is not initial value '{iframePage.GetInitText()}'");
         }
     }
 }
