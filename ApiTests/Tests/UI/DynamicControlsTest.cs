@@ -15,8 +15,9 @@ namespace TestProject.Tests.UI
             dynamicControlsPage.ClickOnEnableBtn();
             dynamicControlsPage.WaitForDisableBtn();
             Assert.That(dynamicControlsPage.CheckIfButtonIsEnabled, Is.True);
-            mainPage.EnterTextInInputField(GetRandomValue());
-            Assert.That(GetRandomValue(), Is.EqualTo(mainPage.GetAttributeOfInputField()), $"Printed text '{mainPage.GetAttributeOfInputField()}' is not" +
+            dynamicControlsPage.EnterTextInInputField(GetRandomValue());
+            Assert.That(GetRandomValue(), Is.EqualTo(dynamicControlsPage.GetAttributeOfInputField()), 
+                $"Printed text '{dynamicControlsPage.GetAttributeOfInputField()}' is not" +
                 $" what was inputted '{GetRandomValue()}'");
         }
     }

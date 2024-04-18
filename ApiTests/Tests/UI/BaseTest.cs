@@ -1,4 +1,5 @@
-﻿using TestProject.Utils;
+﻿using OpenQA.Selenium.Support.UI;
+using TestProject.Utils;
 
 namespace ApiTests.Tests.UI
 {

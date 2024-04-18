@@ -10,6 +10,7 @@ namespace TestProject.Tests.Pages
     {
         private static readonly By enableBtn = By.XPath(string.Format(XpathPatterns.preciseTextXpath, "Enable"));
         private static readonly By disableBtn = By.XPath(string.Format(XpathPatterns.preciseTextXpath, "Disable"));
+        private static readonly By inputField = By.XPath(string.Format(XpathPatterns.typeText));
         readonly WebDriverWait wait = new WebDriverWait(Browser.GetDriver(), TimeSpan.FromSeconds(100));
 
         public void ClickOnEnableBtn()
@@ -31,6 +32,14 @@ namespace TestProject.Tests.Pages
         {
             _ = Browser.GetDriver().FindElement(disableBtn).Enabled;
             return true;
+        }
+        public void EnterTextInInputField(string randomValue)
+        {
+            Browser.GetDriver().FindElement(inputField).SendKeys(randomValue);
+        }
+        public string GetAttributeOfInputField()
+        {
+            return Browser.GetDriver().FindElement(inputField).GetAttribute("value");
         }
     }
 }

@@ -1,7 +1,5 @@
 ﻿using ApiTests.Tests.UI;
-using System.Reflection;
 using TestProject.Tests.Pages;
-using static System.Net.Mime.MediaTypeNames;
 
 
 namespace TestProject.Tests.UI

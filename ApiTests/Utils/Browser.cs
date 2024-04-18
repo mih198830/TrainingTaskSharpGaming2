@@ -4,7 +4,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace TestProject.Utils
 {
-    internal class Browser
+    public class Browser
     {
         private static WebDriver driver = null;
         private static WebDriverWait wait = null;
