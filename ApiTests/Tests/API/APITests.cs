@@ -11,8 +11,6 @@ namespace TestProject.Tests.API
         [SetUp]
         public void Setup()
         {
-            //create a pet using post request
-            //move test data creation here
             PetStoreApiUtils.PostPet(
                 new Pet(
                     ConfigReader.GetNumericalTestDataValue("petId"),
@@ -23,12 +21,10 @@ namespace TestProject.Tests.API
         [Test]
         public void PetTest()
         {
-            //validate that the name of the pet is as you passed in a previous step
             Assert.That(PetStoreApiUtils.GetPetById(
                 ConfigReader.GetNumericalTestDataValue("petId")).Name,
                 Is.EqualTo(ConfigReader.GetTestDataValue("petName")), "Pet name is not as expected");
 
-            //update pet and change the name to a new one and validate that the request was successful
             RestResponse updateResponse = PetStoreApiUtils.PutPet(
                 new Pet(
                     ConfigReader.GetNumericalTestDataValue("petId"),
@@ -38,7 +34,6 @@ namespace TestProject.Tests.API
             Assert.Multiple(() =>
             {
                 Assert.That(updateResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK), "Pet update request was not successful");
-                //validate that the name of the pet is updated to a new one
                 Assert.That(PetStoreApiUtils.GetPetById(
                     ConfigReader.GetNumericalTestDataValue("petId")).Name,
                     Is.EqualTo(ConfigReader.GetTestDataValue("newPetName")),
@@ -50,8 +45,6 @@ namespace TestProject.Tests.API
         [TearDown]
         public void TearDown()
         {
-            //delete a pet from the petstore
-            //Created pet should be deleted after the test
             PetStoreApiUtils.DeletePetById(ConfigReader.GetTestDataValue("petId"));
         }
     }
