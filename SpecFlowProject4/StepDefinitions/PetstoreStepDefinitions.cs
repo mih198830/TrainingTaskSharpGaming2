@@ -3,40 +3,19 @@ namespace SpecFlowProject4.StepDefinitions
     [Binding]
     public sealed class PetstoreStepDefinitions
     {
-        [Given("the first number is (.*)")]
-        public void GivenTheFirstNumberIs(int number)
+        [Given(@"A pet was created using get request")]
+        public void GivenAPetWasCreatedUsingGetRequest()
         {
-            //TODO: implement arrange (precondition) logic
-            // For storing and retrieving scenario-specific data see https://go.specflow.org/doc-sharingdata
-            // To use the multiline text or the table argument of the scenario,
-            // additional string/Table parameters can be defined on the step definition
-            // method. 
-
             throw new PendingStepException();
         }
 
-        [Given("the second number is (.*)")]
-        public void GivenTheSecondNumberIs(int number)
+        [When(@"I Get a pet by ID from precondition\)")]
+        public void WhenIGetAPetByIDFromPrecondition()
         {
-            //TODO: implement arrange (precondition) logic
-
-            throw new PendingStepException();
+            ConfigReader.GetTestDataValue("initText");
+            ConfigReader.
+            int petId = ConfigReader.GetNumericalTestDataValue("petId");
         }
 
-        [When("the two numbers are added")]
-        public void WhenTheTwoNumbersAreAdded()
-        {
-            //TODO: implement act (action) logic
-
-            throw new PendingStepException();
-        }
-
-        [Then("the result should be (.*)")]
-        public void ThenTheResultShouldBe(int result)
-        {
-            //TODO: implement assert (verification) logic
-
-            throw new PendingStepException();
-        }
     }
 }
