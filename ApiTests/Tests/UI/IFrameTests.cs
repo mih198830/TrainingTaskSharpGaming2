@@ -1,5 +1,6 @@
 ﻿using ApiTests.Tests.UI;
 using TestProject.Tests.Pages;
+using TestProject.Utils;
 
 
 namespace TestProject.Tests.UI
@@ -22,8 +23,8 @@ namespace TestProject.Tests.UI
             iframePage.ClickOnEditButtonInIframe();
             iframePage.ClickOnUndoButton();
             iframePage.SwitchToIframe();
-            Assert.That(iframePage.GetPrintedTextAfterClearTextField(), Is.EqualTo(iframePage.GetInitText()), 
-                $"Printed text is not initial value '{iframePage.GetInitText()}'");
+            Assert.That(iframePage.GetPrintedTextAfterClearTextField(), Is.EqualTo(ConfigReader.GetTestDataValue("initText")), 
+                $"Printed text is not initial value '{ConfigReader.GetTestDataValue("initText")}'");
         }
     }
 }

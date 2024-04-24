@@ -1,5 +1,6 @@
 ﻿using ApiTests.Tests.UI;
 using TestProject.Tests.Pages;
+using TestProject.Utils;
 
 namespace TestProject.Tests.UI
 {
@@ -15,10 +16,10 @@ namespace TestProject.Tests.UI
             dynamicControlsPage.ClickOnEnableBtn();
             dynamicControlsPage.WaitForDisableBtn();
             Assert.That(dynamicControlsPage.CheckIfButtonIsEnabled, Is.True);
-            dynamicControlsPage.EnterTextInInputField(GetRandomValue());
-            Assert.That(GetRandomValue(), Is.EqualTo(dynamicControlsPage.GetAttributeOfInputField()), 
+            dynamicControlsPage.EnterTextInInputField(RandomUtils.GetRandomValue());
+            Assert.That(RandomUtils.GetRandomValue(), Is.EqualTo(dynamicControlsPage.GetAttributeOfInputField()), 
                 $"Printed text '{dynamicControlsPage.GetAttributeOfInputField()}' is not" +
-                $" what was inputted '{GetRandomValue()}'");
+                $" what was inputted '{RandomUtils.GetRandomValue()}'");
         }
     }
 }
