@@ -4,7 +4,7 @@ using TestProject.Utils;
 
 namespace TestProject.Tests.UI
 {
-    internal class DynamicControlsTests: BaseTest
+    internal class DynamicControlsTests
     {
         readonly MainPage mainPage = new MainPage();
         readonly DynamicControlsPage dynamicControlsPage = new DynamicControlsPage();

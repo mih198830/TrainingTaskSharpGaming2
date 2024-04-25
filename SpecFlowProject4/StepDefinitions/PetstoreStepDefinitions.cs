@@ -12,9 +12,7 @@ namespace SpecFlowProject4.StepDefinitions
         [When(@"I Get a pet by ID from precondition\)")]
         public void WhenIGetAPetByIDFromPrecondition()
         {
-            ConfigReader.GetTestDataValue("initText");
-            ConfigReader.
-            int petId = ConfigReader.GetNumericalTestDataValue("petId");
+
         }
 
     }

@@ -1,6 +1,6 @@
 ﻿namespace TestProject.Utils
 {
-    internal class RandomUtils
+    public class RandomUtils
     {
         private static readonly string randomValue = Guid.NewGuid().ToString();
         public static string GetRandomValue()
