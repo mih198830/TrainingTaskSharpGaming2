@@ -21,9 +21,6 @@ namespace ApiTests.Tests.UI
         }
 
         [TearDown]
-        public void TearDown()
-        {
-            Browser.GetDriver().Quit();
-        }
+        public void TearDown() => Browser.GetDriver().Quit();
     }
 }

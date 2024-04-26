@@ -4,7 +4,7 @@ using System.Text.Json;
 
 namespace TestProject.Utils
 {
-    static class PetStoreApiUtils
+    public class PetStoreApiUtils
     {
         private static readonly string PetEndpoint = "pet/";
 
