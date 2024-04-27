@@ -108,7 +108,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("Request was successful & the name is updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 11
- testRunner.And("I Deleted a pet from a pet store", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I Delete a pet from a pet store", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -8,4 +8,4 @@ Scenario: Create a pet using get request
 	Then Pet is added with the specified name
 	When I Update a pet from previous step and change the name to a new one
 	Then Request was successful & the name is updated
-	And I Deleted a pet from a pet store
+	And I Delete a pet from a pet store

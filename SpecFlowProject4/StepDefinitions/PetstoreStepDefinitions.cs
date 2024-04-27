@@ -4,6 +4,7 @@ using System.Net;
 using TestProject.Models;
 using TestProject.Tests.API;
 using TestProject.Utils;
+using TechTalk.SpecFlow.Assist;
 
 
 namespace SpecFlowProject4.StepDefinitions
@@ -46,24 +47,31 @@ namespace SpecFlowProject4.StepDefinitions
                     ConfigReader.GetNumericalTestDataValue("petId"),
                     ConfigReader.GetTestDataValue("newPetName"),
                     ConfigReader.GetTestDataValue("petStatus")));
-            scenarioContext["updatedResponse"] = updateResponse;
+            scenarioContext["updateResponse"] = updateResponse;
         }
 
         [Then(@"Request was successful & the name is updated")]
         public void ThenRequestWasSuccessfulTheNameIsUpdated()
         {
-            var pet = (Pet)scenarioContext["pet"];
-            var updatedPetName = ConfigReader.GetTestDataValue("newPetName");
+            var expectedUpdatePetName = ConfigReader.GetTestDataValue("newPetName");
             var updateResponse = (RestResponse)scenarioContext["updateResponse"];
+            var petId = ConfigReader.GetNumericalTestDataValue("petId");
+            var updatedPet = PetStoreApiUtils.GetPetById(petId);
+            scenarioContext["updatedPet"] = updatedPet;
             Assert.Multiple(() =>
             {
                 Assert.That(updateResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK), "Pet update request was not successful");
-                Assert.That(pet.Name,
-                    Is.EqualTo(updatedPetName),
+                Assert.That(updatedPet.Name,
+                    Is.EqualTo(expectedUpdatePetName),
                     "Updated pet name is not as expected");
             });
         }
 
+        [Then(@"I Delete a pet from a pet store")]
+        public void ThenIDeletedAPetFromAPetStore()
+        {
+            PetStoreApiUtils.DeletePetById(ConfigReader.GetTestDataValue("petId"));
+        }
 
     }
 }
