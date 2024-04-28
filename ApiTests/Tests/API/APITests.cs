@@ -1,3 +1,4 @@
+using NUnit.Framework.Interfaces;
 using RestSharp;
 using System.Net;
 using TestProject.Models;
@@ -8,14 +9,14 @@ namespace TestProject.Tests.API
 {
     public class Tests
     {
-        [SetUp]
-        public void Setup()
+        
+        public void Setup(string petId, string petName, string petStatus)
         {
             PetStoreApiUtils.PostPet(
                 new Pet(
-                    ConfigReader.GetNumericalTestDataValue("petId"),
-                    ConfigReader.GetTestDataValue("petName"),
-                    ConfigReader.GetTestDataValue("petStatus")));
+                    ConfigReader.GetNumericalTestDataValue(petId),
+                    ConfigReader.GetTestDataValue(petName),
+                    ConfigReader.GetTestDataValue(petStatus)));
         }
 
         [Test]

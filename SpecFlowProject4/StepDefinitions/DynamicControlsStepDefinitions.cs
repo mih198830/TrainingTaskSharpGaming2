@@ -3,12 +3,16 @@ using TestProject.Tests.Pages;
 using TestProject.Utils;
 using TechTalk.SpecFlow;
 using NUnit.Framework;
+using SpecFlowProject4.StepDefinitions;
 
 namespace DynamicControlsStepDefinitions
 {
     [Binding]
-    public class DynamicControlsStepDefinitions : BaseTest
+    internal class DynamicControlsStepDefinitions : SetUp
     {
+        public DynamicControlsStepDefinitions(ScenarioContext _scenarioContext) : base(_scenarioContext)
+        {
+        }
         readonly MainPage mainPage = new MainPage();
         readonly DynamicControlsPage dynamicControlsPage = new DynamicControlsPage();
 
