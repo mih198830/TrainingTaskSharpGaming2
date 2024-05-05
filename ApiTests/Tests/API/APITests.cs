@@ -9,7 +9,6 @@ namespace TestProject.Tests.API
 {
     public class Tests
     {
-        
         public void Setup(string petId, string petName, string petStatus)
         {
             PetStoreApiUtils.PostPet(

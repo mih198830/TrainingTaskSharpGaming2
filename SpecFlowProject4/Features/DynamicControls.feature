@@ -1,7 +1,7 @@
 ﻿Feature: DynamicControls
-
 Check https://the-internet.herokuapp.com/ Dynamic Controls functionality
 
+@ui
 Scenario: Dynamic Controls
 	Given I Click link on the Main page
 	When I Click 'Enable' button

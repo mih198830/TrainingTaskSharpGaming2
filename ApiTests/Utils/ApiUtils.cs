@@ -8,7 +8,6 @@ namespace TestProject.Utils
 
         public static RestResponse SendGetRequest(string resource)
         {
-            //implemented a simple get request
             return client.Execute(new RestRequest(resource, Method.Get)
             { RequestFormat = DataFormat.Json });
         }

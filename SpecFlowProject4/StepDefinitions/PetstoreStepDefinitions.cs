@@ -54,7 +54,6 @@ namespace SpecFlowProject4.StepDefinitions
             scenarioContext["updateResponse"] = updateResponse;
         }
 
-
         [Then(@"Request was successful")]
         public void ThenRequestWasSuccessful()
         {
@@ -79,6 +78,5 @@ namespace SpecFlowProject4.StepDefinitions
         {
             PetStoreApiUtils.DeletePetById(ConfigReader.GetTestDataValue(petId));
         }
-
     }
 }

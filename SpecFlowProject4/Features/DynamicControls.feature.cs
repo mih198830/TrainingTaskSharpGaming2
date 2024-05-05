@@ -75,9 +75,11 @@ namespace SpecFlowProject4.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Dynamic Controls")]
+        [NUnit.Framework.CategoryAttribute("ui")]
         public void DynamicControls()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "ui"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Dynamic Controls", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 5

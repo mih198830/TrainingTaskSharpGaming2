@@ -1,6 +1,7 @@
 ﻿Feature: Petstore
 Pet create, update, delete operations via API
 
+@api
 Scenario: Create a pet using get request
 	Given A pet with ID 'petId' is created with name 'petName' and status 'petStatus'
 	When I Get a pet by ID 'petId' from precondition
