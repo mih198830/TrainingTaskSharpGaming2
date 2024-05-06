@@ -13,14 +13,9 @@ namespace DynamicControlsStepDefinitions
         public DynamicControlsStepDefinitions(ScenarioContext _scenarioContext) : base(_scenarioContext)
         {
         }
-        readonly MainPage mainPage = new MainPage();
         readonly DynamicControlsPage dynamicControlsPage = new DynamicControlsPage();
 
-        [Given(@"I Click link on the Main page")]
-        public void GivenIClickLinkOnTheMainPage()
-        {
-            mainPage.ClickOnDynamicControl();
-        }
+
 
         [When(@"I Click '([^']*)' button")]
         public void WhenIClickButton(string enable)

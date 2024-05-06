@@ -5,18 +5,10 @@ namespace TestProject.Tests.Pages
 {
     public class MainPage
     {
-        private static readonly By dynamicControl = By.XPath(string.Format(XpathPatterns.preciseTextXpath, 
-            "Dynamic Controls"));
-        private static readonly By framesBtn = By.XPath(string.Format(XpathPatterns.preciseTextXpath, "Frames"));        
-
-        public void ClickOnDynamicControl()
-        {
-            Browser.GetDriver().FindElement(dynamicControl).Click();
-        }
-
-        public void ClickOnFramesButton()
-        {
-            Browser.GetDriver().FindElement(framesBtn).Click();
-        }
+        //public void ClickOnElement(string elementName)
+        //{
+        //    By elementLocator = By.XPath(string.Format(XpathPatterns.preciseTextXpath, elementName));
+        //    Browser.GetDriver().FindElement(elementLocator).Click();
+        //}
     }
 }

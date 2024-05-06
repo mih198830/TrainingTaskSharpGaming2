@@ -12,7 +12,7 @@ namespace TestProject.Tests.UI
         [Test]
         public void DynamicControlsTest()
         {
-            mainPage.ClickOnDynamicControl();
+            //mainPage.ClickOnDynamicControl();
             dynamicControlsPage.ClickOnEnableBtn();
             dynamicControlsPage.WaitForDisableBtn();
             Assert.That(dynamicControlsPage.CheckIfButtonIsEnabled, Is.True);

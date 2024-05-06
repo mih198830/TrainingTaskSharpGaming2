@@ -4,7 +4,7 @@ using TestProject.Utils;
 
 namespace TestProject.Tests.Pages
 {
-    internal class IframePage : BaseTest
+    public class IframePage : BaseTest
     {
         private static readonly By textField = By.XPath("//*[@data-id='mce_0']");
         private static readonly By editBtn = By.XPath(string.Format(XpathPatterns.preciseTextXpath, "Edit"));

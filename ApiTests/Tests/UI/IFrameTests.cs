@@ -7,14 +7,13 @@ namespace TestProject.Tests.UI
 {
     internal class IFrameTests : BaseTest
     {
-        readonly MainPage mainPage = new MainPage();
         readonly FramesPage framesPage = new FramesPage();
         readonly IframePage iframePage = new IframePage();
 
         [Test]
         public void IFrameTest()
         {
-            mainPage.ClickOnFramesButton();
+            //mainPage.ClickOnFramesButton();
             framesPage.ClickOnIframeButton();
             iframePage.SwitchToIframe();
             iframePage.SendRandomTextToTextField();

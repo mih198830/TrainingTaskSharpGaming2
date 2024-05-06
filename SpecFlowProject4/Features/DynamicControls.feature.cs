@@ -74,14 +74,14 @@ namespace SpecFlowProject4.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Dynamic Controls")]
+        [NUnit.Framework.DescriptionAttribute("Using Dynamic Controls to Enable/Disable Input")]
         [NUnit.Framework.CategoryAttribute("ui")]
-        public void DynamicControls()
+        public void UsingDynamicControlsToEnableDisableInput()
         {
             string[] tagsOfScenario = new string[] {
                     "ui"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Dynamic Controls", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Using Dynamic Controls to Enable/Disable Input", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -93,7 +93,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 6
- testRunner.Given("I Click link on the Main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.When("I Click \'Dynamic Controls\' link on the Main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 7
  testRunner.When("I Click \'Enable\' button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

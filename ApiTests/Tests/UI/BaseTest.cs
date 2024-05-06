@@ -1,11 +1,18 @@
-﻿using OpenQA.Selenium.Support.UI;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using TestProject.Utils;
 
 namespace ApiTests.Tests.UI
 {
     public class BaseTest
     {
+        public void ClickOnElement(string elementName)
+        {
+            By elementLocator = By.XPath(string.Format(XpathPatterns.preciseTextXpath, elementName));
+            Browser.GetDriver().FindElement(elementLocator).Click();
+        }
         protected static readonly string partialTextXpath = "//*[contains(text(),'{0}')]";
+
 
         [SetUp]
         public void Setup()
