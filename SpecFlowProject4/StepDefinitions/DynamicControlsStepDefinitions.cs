@@ -14,15 +14,15 @@ namespace DynamicControlsStepDefinitions
         {
         }
         readonly DynamicControlsPage dynamicControlsPage = new DynamicControlsPage();
+        BaseTest baseTest = new BaseTest();
 
-
-
-        [When(@"I Click '([^']*)' button")]
-        public void WhenIClickButton(string enable)
+        [Given(@"I Click '([^']*)' button")]
+        public void GivenIClickButton(string Enable)
         {
-            dynamicControlsPage.ClickOnEnableBtn();
+            baseTest.ClickOnElement(Enable);
             dynamicControlsPage.WaitForDisableBtn();
         }
+
 
         [Then(@"Enable/disable input is enabled")]
         public void ThenEnableDisableInputIsEnabled()

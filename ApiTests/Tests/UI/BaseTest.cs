@@ -11,6 +11,9 @@ namespace ApiTests.Tests.UI
             By elementLocator = By.XPath(string.Format(XpathPatterns.preciseTextXpath, elementName));
             Browser.GetDriver().FindElement(elementLocator).Click();
         }
+
+
+
         protected static readonly string partialTextXpath = "//*[contains(text(),'{0}')]";
 
 
