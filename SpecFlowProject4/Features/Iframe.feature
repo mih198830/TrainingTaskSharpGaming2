@@ -1,11 +1,11 @@
 ﻿Feature: Iframe
-A short summary of the feature
+To verify that text can be edited within an iFrame and that the changes can be undone.
 
 @ui
 Scenario: Editing Text in an iFrame and Undoing Changes
 	When I Click 'Frames' link on the page
 	  And I Click 'iFrame' link on the page
-	  And I Input random generated text to the text editor
-	Then Random text is displayed
+	  And I Input random generated text to the text editor and save as '_randomText' 
+	Then Random text is displayed in Iframe
 	When I Undo changes with Edit menu
-	Then "Your content goes here." text is displayed in the editor
+	Then Expected text 'initText' is displayed in the editor
