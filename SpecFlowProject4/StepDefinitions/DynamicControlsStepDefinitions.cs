@@ -1,7 +1,6 @@
 ﻿using ApiTests.Tests.UI;
 using TestProject.Tests.Pages;
 using TestProject.Utils;
-using TechTalk.SpecFlow;
 using NUnit.Framework;
 using SpecFlowProject4.StepDefinitions;
 
@@ -13,8 +12,8 @@ namespace DynamicControlsStepDefinitions
         public DynamicControlsStepDefinitions(ScenarioContext _scenarioContext) : base(_scenarioContext)
         {
         }
-        readonly DynamicControlsPage dynamicControlsPage = new DynamicControlsPage();
-        BaseTest baseTest = new BaseTest();
+        readonly DynamicControlsPage dynamicControlsPage = new ();
+        readonly BaseTest baseTest = new ();
 
         [Given(@"I Click '([^']*)' button")]
         public void GivenIClickButton(string Enable)
@@ -43,7 +42,5 @@ namespace DynamicControlsStepDefinitions
                 $"Printed text '{dynamicControlsPage.GetAttributeOfInputField()}' is not" +
                 $" what was inputted '{RandomUtils.GetRandomValue()}'");
         }
-
     }
 }
-

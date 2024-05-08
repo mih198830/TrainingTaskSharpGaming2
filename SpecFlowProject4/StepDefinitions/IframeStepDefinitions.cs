@@ -1,6 +1,5 @@
 ﻿using ApiTests.Tests.UI;
 using NUnit.Framework;
-using TestProject.Models;
 using TestProject.Tests.Pages;
 using TestProject.Utils;
 
@@ -9,8 +8,8 @@ namespace SpecFlowProject4.StepDefinitions
     [Binding]
     internal class IframeStepDefinitions : SetUp
     {
-        BaseTest baseTest = new BaseTest();
-        IframePage iframePage = new IframePage();
+        readonly BaseTest baseTest = new();
+        readonly IframePage iframePage = new();
         public IframeStepDefinitions(ScenarioContext _scenarioContext) : base(_scenarioContext)
         {
         }
@@ -51,6 +50,5 @@ namespace SpecFlowProject4.StepDefinitions
             Assert.That(iframePage.GetPrintedTextAfterClearTextField(), Is.EqualTo(ConfigReader.GetTestDataValue(initText)),
                 $"Printed text is not initial value '{ConfigReader.GetTestDataValue(initText)}'");
         }
-
     }
 }

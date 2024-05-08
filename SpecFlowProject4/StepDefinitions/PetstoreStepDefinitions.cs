@@ -10,7 +10,7 @@ namespace SpecFlowProject4.StepDefinitions
     [Binding]
     public sealed class PetstoreStepDefinitions
     {
-        readonly Tests tests = new Tests();
+        readonly Tests tests = new();
         private readonly ScenarioContext scenarioContext;
         public PetstoreStepDefinitions(ScenarioContext scenarioContext)
         {
@@ -74,7 +74,7 @@ namespace SpecFlowProject4.StepDefinitions
         }
 
         [Then(@"I Delete a pet from a pet with id '(.*)' store")]
-        public void ThenIDeletedAPetFromAPetStore(string petId)
+        public static void ThenIDeletedAPetFromAPetStore(string petId)
         {
             PetStoreApiUtils.DeletePetById(ConfigReader.GetTestDataValue(petId));
         }

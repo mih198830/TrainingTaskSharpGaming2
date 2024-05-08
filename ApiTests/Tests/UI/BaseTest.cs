@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 using TestProject.Utils;
 
 namespace ApiTests.Tests.UI
@@ -12,13 +11,10 @@ namespace ApiTests.Tests.UI
             Browser.GetDriver().FindElement(elementLocator).Click();
         }
 
-
-
         protected static readonly string partialTextXpath = "//*[contains(text(),'{0}')]";
 
-
         [SetUp]
-        public void Setup()
+        public static void Setup()
         {
             try
             {
