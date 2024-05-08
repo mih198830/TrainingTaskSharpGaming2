@@ -1,5 +1,6 @@
 ﻿Feature: Petstore
 Pet create, update, delete operations via API
+See https://petstore.swagger.io/ for documentation
 
 @api
 Scenario: Create a pet using get request

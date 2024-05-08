@@ -68,9 +68,8 @@ namespace SpecFlowProject4.StepDefinitions
             var petId = ConfigReader.GetNumericalTestDataValue("petId");
             var updatedPet = PetStoreApiUtils.GetPetById(petId);
             scenarioContext["updatedPet"] = updatedPet;
-            Assert.That(updatedPet.Name,
-                    Is.EqualTo(expectedUpdatePetName),
-                    $"Updated pet name is not as expected {newPetName}");
+            Assert.That(updatedPet.Name, Is.EqualTo(expectedUpdatePetName),
+            $"Updated pet name is not as expected {newPetName}");
         }
 
         [Then(@"I Delete a pet from a pet with id '(.*)' store")]
