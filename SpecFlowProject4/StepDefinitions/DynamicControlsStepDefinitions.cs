@@ -3,6 +3,7 @@ using TestProject.Tests.Pages;
 using TestProject.Utils;
 using NUnit.Framework;
 using SpecFlowProject4.StepDefinitions;
+using TestProject.Models;
 
 namespace DynamicControlsStepDefinitions
 {
@@ -29,18 +30,23 @@ namespace DynamicControlsStepDefinitions
             Assert.That(dynamicControlsPage.CheckIfButtonIsEnabled, Is.True);
         }
 
-        [When(@"I Send random text to Enable/disable input")]
-        public void WhenISendRandomTextToEnableDisableInput()
+        [When(@"I Send random text '([^']*)' to Enable/disable input")]
+        public void WhenISendRandomTextToEnableDisableInput(string _randomText)
         {
-            dynamicControlsPage.EnterTextInInputField(RandomUtils.GetRandomValue());
+            var randomText = RandomUtils.GetRandomValue();
+            dynamicControlsPage.EnterTextInInputField(randomText);
+            scenarioContext["_randomText"] = randomText;
         }
 
-        [Then(@"Random text is displayed")]
-        public void ThenRandomTextIsDisplayed()
+        [Then(@"Random text '([^']*)' is displayed")]
+        public void ThenRandomTextIsDisplayed(string _randomText)
         {
-            Assert.That(RandomUtils.GetRandomValue(), Is.EqualTo(dynamicControlsPage.GetAttributeOfInputField()),
+            var randomText = scenarioContext["_randomText"].ToString();
+            Assert.That(randomText, Is.EqualTo(dynamicControlsPage.GetAttributeOfInputField()),
                 $"Printed text '{dynamicControlsPage.GetAttributeOfInputField()}' is not" +
-                $" what was inputted '{RandomUtils.GetRandomValue()}'");
+                $" what was inputted '{randomText}'");
+
         }
+
     }
 }
