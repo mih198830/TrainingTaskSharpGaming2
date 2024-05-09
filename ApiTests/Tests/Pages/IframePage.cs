@@ -29,9 +29,9 @@ namespace TestProject.Tests.Pages
 
         public bool GetPrintedTextBeforeClear()
         {
-
+            var randomText = RandomUtils.GetRandomValue();
             var printedTextSum = Browser.GetDriver().FindElement(By.XPath(string.Format(XpathPatterns.preciseTextXpath,
-                ConfigReader.GetTestDataValue("initText") + RandomUtils.GetRandomValue())));
+                ConfigReader.GetTestDataValue("initText") + randomText)));
             bool isDisplayed = printedTextSum.Displayed;
             return isDisplayed;
         }

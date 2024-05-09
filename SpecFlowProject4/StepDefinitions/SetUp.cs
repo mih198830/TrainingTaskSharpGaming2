@@ -1,5 +1,4 @@
-﻿using ApiTests.Tests.UI;
-using TestProject.Utils;
+﻿using TestProject.Utils;
 
 namespace SpecFlowProject4.StepDefinitions
 {
@@ -7,7 +6,6 @@ namespace SpecFlowProject4.StepDefinitions
     internal class SetUp: Browser
     {
         protected ScenarioContext scenarioContext;
-
 
         [BeforeScenario]
         public void Setup()
